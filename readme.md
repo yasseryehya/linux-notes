@@ -1,4 +1,4 @@
-# Chapter 3
+# **Chapter 3**
 
 ## various notes
 - rm command but interactively use `rm -ri`
@@ -20,13 +20,16 @@
 `df`
 
 ## Expansions
-    * -> 0 or more
-    ? -> 1 character
-    touch file-{1..9}{1..9}{1..9}
-    ls *[13]*
-    ls file??[34]
-    [!abc...] -> any character not in brackets
-    [^abc...] -> any character not in brackets
+
+| Syntax                          |          Description          |
+| :------------------------------ | :---------------------------: |
+| `touch file-{1..9}{1..9}{1..9}` |  touch file-111 to file-999   |
+| *                               |           0 or more           |
+| ?                               |          1 character          |
+| `ls *[13]*`                     |  any file containing 1 or 3   |
+| `ls file??[34]`                 |  any file ending with 1 or 3  |
+| [!abc...]                       | any character not in brackets |
+| [^abc...]                       | any character not in brackets |
 
 ## Variables
 ```bash
@@ -35,7 +38,7 @@ echo ${x}
 echo Time and data is $(data)
 ```
 
-# Chapter 4
+# **Chapter 4**
 
 ## man page
 `man command`
@@ -49,4 +52,6 @@ echo Time and data is $(data)
 ## info page
 `pinfo command`
 
-<span style="color:#078fad">**NOTE:** man pages are located at <em>/usr/share/man<em/></span>
+**NOTE:** man pages are located at <em>/usr/share/man<em/>
+
+# **Chapter 5**
