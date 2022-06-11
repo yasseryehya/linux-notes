@@ -55,3 +55,27 @@ echo Time and data is $(data)
 **NOTE:** man pages are located at <em>/usr/share/man<em/>
 
 # **Chapter 5**
+## redirection
+
+| Syntax                                              |                     Description                      | stdout display | error display |
+| :-------------------------------------------------- | :--------------------------------------------------: | :------------: | :-----------: |
+| `find /etc -name passwd > output_file`              |  redirect **output** of command to file (overwrite)  |       no       |      yes      |
+| `find /etc -name passwd >> output_file`             |   redirect **output** of command to file (append)    |       no       |      yes      |
+| `find /etc -name passwd 2> errors_file`             |        redirect **errors** of command to file        |      yes       |      no       |
+| `find /etc -name passwd 2> /dev/null`               |      ignore errors (don't save or display them)      |      yes       |      no       |
+| `find /etc -name passwd > passwd_out 2> passwd_err` | redirect output to a file and errors to another file |       no       |      no       |
+| `find /etc -name passwd &> both`                    |     redirect output and errors to the same file      |       no       |      no       |
+
+## pipelining
+`ls -l /usr/bin | less`
+
+pass output of first command to second command
+
+`ls -l /usr/bin | tee output_file | less`
+
+redirect output of first command to file and pass it to second command
+
+## vim editor
+`vim filename`
+
+![alt text](images/vim-modes.png?raw=true)
