@@ -67,15 +67,52 @@ echo Time and data is $(data)
 | `find /etc -name passwd &> both`                    |     redirect output and errors to the same file      |       no       |      no       |
 
 ## pipelining
-`ls -l /usr/bin | less`
-
 pass output of first command to second command
 
-`ls -l /usr/bin | tee output_file | less`
+`ls -l /usr/bin | less`
 
 redirect output of first command to file and pass it to second command
+
+`ls -l /usr/bin | tee output_file | less`
 
 ## vim editor
 `vim filename`
 
 ![alt text](images/vim-modes.png?raw=true)
+
+## shell variables
+`EDITOR=vi`
+- only accessible from current shell session
+## environmental variable
+````bash
+EDITOR=vi
+export $EDITOR
+# you can also use
+export $EDITOR=vi
+````
+## path
+`echo $PATH`
+
+add <em>/home/user/sbin<em/> to path
+
+`export PATH=${PATH}:/home/user/sbin`
+
+list environmental variables
+
+`env`
+
+variables can be added to ~/.bashrc
+````bash
+# open .bashrc
+vim ~/.bashrc
+# add your variables
+export EDITOR=vi
+````
+
+## unsetting and unexporting variables
+````bash
+# unset variable
+unset VARNAME
+# unexport without unsetting (unexport from environmental variables)
+export -n VARNAME
+````
