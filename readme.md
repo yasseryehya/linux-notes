@@ -34,3 +34,19 @@ x=50
 echo ${x}
 echo Time and data is $(data)
 ```
+
+# Chapter 4
+
+## man page
+`man command`
+
+## search command
+`man -k command`
+
+## list files related to the command (binary, man page, ...)
+`whereis command`
+
+## info page
+`pinfo command`
+
+<span style="color:#078fad">**NOTE:** man pages are located at <em>/usr/share/man<em/></span>
