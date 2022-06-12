@@ -145,12 +145,12 @@ su - username
 su -
 ```
 
-# adding a user to sudoers
+## adding a user to sudoers
 this can be done by:
 - adding a file in /etc/sudoers.d/ with the same format of /etc/sudoers file
 - using `visudo` command which is used to edit /etc/sudoers file
 
-# user actions
+## user actions
 ```bash
 # add user
 useradd username
@@ -161,13 +161,13 @@ userdel username
 userdel -r username # delete with user's files
 ```
 
-# adding password to a user
+## adding password to a user
 `passwd username`
 
-# some usermod options
+## some usermod options
 ![alt text](images/usermod.jpg?raw=true)
 
-# group actions
+## group actions
 ```bash
 # add group
 groupadd groupname
