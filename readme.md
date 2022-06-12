@@ -270,3 +270,6 @@ most important edits are
 PermitRootLogin no
 PubkeyAuthentication yes
 ```
+reload ssh service
+
+`systemctl reload sshd`
