@@ -136,3 +136,47 @@ ls -ld
 ```
 ## check process PID and user
 `ps -au`
+
+## switching user
+```bash
+# switching to username
+su - username
+# switching to root
+su -
+```
+
+# adding a user to sudoers
+this can be done by:
+- adding a file in /etc/sudoers.d/ with the same format of /etc/sudoers file
+- using `visudo` command which is used to edit /etc/sudoers file
+
+# user actions
+```bash
+# add user
+useradd username
+# modify user
+usermod [options] username
+# delete user
+userdel username
+userdel -r username # delete with user's files
+```
+
+# adding password to a user
+`passwd username`
+
+# some usermod options
+![alt text](images/usermod.jpg?raw=true)
+
+# group actions
+```bash
+# add group
+groupadd groupname
+groupadd -g GID groupname # specify GID
+groupadd -r groupname # add system group
+
+# modify group
+groupmod [options] groupname
+
+# delete group
+groupdel groupname
+```
