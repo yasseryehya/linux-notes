@@ -147,21 +147,23 @@ su -
 
 ## adding a user to sudoers
 this can be done by:
-- adding a file in /etc/sudoers.d/ with the same format of /etc/sudoers file
-- using `visudo` command which is used to edit /etc/sudoers file
+- adding a file in /etc/sudoers.d/ with the same format of /etc/sudoers
+- using `visudo` command which is used to edit /etc/sudoers
 
 ## user actions
 ```bash
 # add user
 useradd username
+
 # modify user
 usermod [options] username
+
 # delete user
 userdel username
 userdel -r username # delete with user's files
 ```
 
-## adding password to a user
+## setting password to a user
 `passwd username`
 
 ## some usermod options
@@ -179,4 +181,42 @@ groupmod [options] groupname
 
 # delete group
 groupdel groupname
+```
+
+## managing passwords
+
+## /etc/shadow
+![alt text](images/shadow.jpg?raw=true)
+
+## encrypted password
+![alt text](images/encrypted_password.jpg?raw=true).
+
+## password aging
+![alt text](images/password_aging.jpg?raw=true)
+
+## display password aging
+`chage -l username`
+
+## modify password configurations
+`chage -m 0 -M 90 -W 7 -I 14 username`
+
+## force update password
+`chage -d 0 username`
+
+## expire user
+```bash
+chage -E 2022-07-01
+# hint: you can use the following command to get the date
+date -d "+45days" -u
+```
+
+## restricting user (lock/unlock)
+```bash
+# lock user
+usermod -L username
+# lock and set expiry date
+usermod -L -e 2022-12-05 username
+
+# unlock user
+usermod -U username
 ```
