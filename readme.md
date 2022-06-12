@@ -83,7 +83,7 @@ redirect output of first command to file and pass it to second command
 ## shell variables
 `EDITOR=vi`
 - only accessible from current shell session
-## environmental variable
+## environmental variables
 ````bash
 EDITOR=vi
 export $EDITOR
@@ -116,3 +116,23 @@ unset VARNAME
 # unexport without unsetting (unexport from environmental variables)
 export -n VARNAME
 ````
+
+# **Chapter 6**
+## types of users
+| super user |                        system user                         |       regular user       |
+| :--------: | :--------------------------------------------------------: | :----------------------: |
+|    root    |                          daemons                           | day-to-day<br /> limited |
+|   UID 0    | system processes UID 1-200 <br/> unpriveledged UID 201-999 |        UID 1000+         |
+
+## check UID and ownership
+```bash
+# my id
+id
+# id of user
+id username
+# display ownership
+ls -l
+ls -ld
+```
+## check process PID and user
+`ps -au`
