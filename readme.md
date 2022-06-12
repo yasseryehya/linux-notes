@@ -1,7 +1,7 @@
-# **Chapter 3**
-
-## various notes
+# **miscellaneous**
 - rm command but interactively use `rm -ri`
+ 
+# **Chapter 3**
 
 ## Hard links
 `ln filename hardlink_name`
@@ -189,7 +189,7 @@ groupdel groupname
 ![alt text](images/shadow.jpg?raw=true)
 
 ## encrypted password
-![alt text](images/encrypted_password.jpg?raw=true).
+![alt text](images/encrypted_password.jpg?raw=true)
 
 ## password aging
 ![alt text](images/password_aging.jpg?raw=true)
@@ -219,4 +219,54 @@ usermod -L -e 2022-12-05 username
 
 # unlock user
 usermod -U username
+```
+
+# **Chapter 10**
+## remote access via ssh
+```bash
+ssh username@remotehost
+ssh remotehost # use the current username
+```
+
+## execute commands remotely
+`ssh username@remotehost pwd`
+
+## known hosts and keys location
+known hosts located at:
+- /etc/ssh/ssh_known_hosts
+- ~/.ssh/known_hosts
+
+public/private keys located at:
+- /etc/ssh/
+
+##  keys permissions
+- 600 for the private key
+- 644 for the public key
+
+## generate ssh keys and copy it to remote host
+```bash
+# generate key
+ssh-keygen
+ssh-keygen -f filename # specify file
+
+# copy it to remote host (adding publickey to knownhosts of the remote system)
+ssh-copy-id -i publickey.pub remote_user@remotehost
+```
+
+## authenticate to remote system using certain key
+```ssh -i .ssh/privatekey remote_user@remotehost```
+
+## using ssh-agent for non-interactive authentication
+```bash
+eval $(ssh-agent)
+ssh-add key_filename
+```
+
+## customizing OpenSSH service configurations
+`vim /etc/ssh/sshd_config`
+
+most important edits are
+```
+PermitRootLogin no
+PubkeyAuthentication yes
 ```
