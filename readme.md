@@ -1,3 +1,5 @@
+# **Admin 1**
+
 # **miscellaneous**
 - rm command but interactively use `rm -ri`
  
@@ -273,3 +275,36 @@ PubkeyAuthentication yes
 reload ssh service
 
 `systemctl reload sshd`
+
+# **Admin 2**
+## disk partitioning
+- set partition table type
+```bash
+parted  /dev/nvme0n3 mklabel
+```
+- create partitions
+```bash
+# enter parted interactive prompt
+parted /dev/nvme0n3
+# create partition
+mkpart
+```
+- udevadm settle
+```bash
+udevadm settle
+```
+- set filesystem
+```bash
+mkfs.xfs /dev/nvme0n3p3
+```
+- edit /etc/fstab
+```bash
+vim /etc/fstab
+# add to new line
+# UUID=[partition UUID] [mount point] xfs defaults 0 0
+```
+- daemon-reload & mount
+```bash
+systemctl daemon-reload
+mount -a
+```
